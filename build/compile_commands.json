@@ -1,0 +1,7 @@
+[
+{
+  "directory": "C:/Users/deshi/Code/learn-cmake/build",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g -o CMakeFiles\\sample.dir\\main.cpp.obj -c C:\\Users\\deshi\\Code\\learn-cmake\\main.cpp",
+  "file": "C:/Users/deshi/Code/learn-cmake/main.cpp"
+}
+]
