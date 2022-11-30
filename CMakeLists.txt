@@ -1,11 +1,11 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.0.0)
+project(sample VERSION 0.1.0)
 
-project(sample)
+include(CTest)
+enable_testing()
 
-set(CMAKE_CXX_COMPILER "C:\\MinGW\\bin\\g++.exe")
-set(CMAKE_C_COMPILER "C:\\MinGW\\bin\\gcc.exe")
+add_executable(sample main.cpp)
 
-add_executable(
-    sample
-    main.cpp
-)
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)

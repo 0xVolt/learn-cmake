@@ -51,3 +51,11 @@ In a real-world scenario, when there are hundreds, even thousands, of source fil
         ./sample
 
     to run the files compiled.
+
+
+## Ideally
+
+If you've a VSCode environment setup, do the following.
+1. In the root folder, open up the command pallette and run `CMake: Quick Start`. This should generate a sample `CMakeLists.txt` file and run `cmake` on it. It will also generate a `main.cpp` file if there isn't one in the project yet.
+2. `cd` into the `./build/` directory and run `make` to execute the generated MakeFile.
+3. This would then create the compiled object file for the scripts. *Run those should you desire.*
