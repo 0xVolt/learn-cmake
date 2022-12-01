@@ -59,3 +59,19 @@ If you've a VSCode environment setup, do the following.
 1. In the root folder, open up the command pallette and run `CMake: Quick Start`. This should generate a sample `CMakeLists.txt` file and run `cmake` on it. It will also generate a `main.cpp` file if there isn't one in the project yet.
 2. `cd` into the `./build/` directory and run `make` to execute the generated MakeFile.
 3. This would then create the compiled object file for the scripts. *Run those should you desire.*
+
+###### Note: VSCode generates a CMakeLists.txt file like this. Just in case, for future reference when trying to build without a plugin that auto-generates it.
+
+```ts
+cmake_minimum_required(VERSION 3.0.0)
+project(sample VERSION 0.1.0)
+
+include(CTest)
+enable_testing()
+
+add_executable(sample main.cpp)
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
+```
