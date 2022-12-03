@@ -1,6 +1,6 @@
 # Working with CMAKE
 
-## The requirement for CMAKE
+## Why use CMAKE in the first place?
 
 The traditional way of creating object files and then compiling them with g++ is,
 
