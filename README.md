@@ -1,5 +1,16 @@
 # Working with CMAKE
 
+## Table of Contents
+
+- [Working with CMAKE](#working-with-cmake)
+  - [Table of Contents](#table-of-contents)
+  - [Why use CMAKE in the first place?](#why-use-cmake-in-the-first-place)
+  - [Using CMAKE](#using-cmake)
+  - [Ideally](#ideally)
+          - [Note: VSCode generates a CMakeLists.txt file like this. Just in case, for future reference when trying to build without a plugin that auto-generates it.](#note-vscode-generates-a-cmakeliststxt-file-like-this-just-in-case-for-future-reference-when-trying-to-build-without-a-plugin-that-auto-generates-it)
+- [Using this repository as an example](#using-this-repository-as-an-example)
+
+
 ## Why use CMAKE in the first place?
 
 The traditional way of creating object files and then compiling them with g++ is,
@@ -76,7 +87,7 @@ set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
 ```
 
-## Using this repository as an example
+# Using this repository as an example
 
 The way this project is setup is, we start off with a `CMake: Quick Start` through the command pallette and edit the `CMakeLists.txt` as we go along. There are numerous ways to build projects in C++ using CMake but the template that I'm most familiar with is having all the user-defined header files in a directory named `./include` and all the source files that implement those declared functions in the headers, in a directory named `./src` or `./source`.
 
