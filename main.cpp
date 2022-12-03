@@ -1,5 +1,15 @@
-#include <iostream>
+// Include our user-defined header file
+#include "include/Common.h"
 
-int main(int, char**) {
-    std::cout << "Hello, world!\n";
+#include <iostream>
+// #include <string>
+
+int main() {
+    std::string message = "Print this b*tch";
+
+    printFromSrc(message);
+
+    std::cout << "We're back in main.cpp!";
+
+    return 0;
 }
