@@ -4,7 +4,7 @@
 
 The traditional way of creating object files and then compiling them with g++ is,
 
-```c++
+```py
 g++ -o src main.cpp
 
 ./src
@@ -17,6 +17,26 @@ In a real-world scenario, when there are hundreds, even thousands, of source fil
 ## This Project
 The way this project is setup is, we start off with a `CMake: Quick Start` through the command pallette and edit the `CMakeLists.txt` as we go along. There are numerous ways to build projects in C++ using CMake but the template that I'm most familiar with is having all the user-defined header files in a directory named `./include` and all the source files that implement those declared functions in the headers, in a directory named `./src` or `./source`.
 
+To make sure the `make` file is created properly by linking all those dependency files with your `main.cpp` executable, you need to add the following to your `CMakeLists.txt`:
+```py
+# The next following functions are quintessential for this kind of design of CMake project
+
+# Use this to add sub-directories for storing the headers and source files separately
+include_directories(
+    ${PROJECT_SOURCE_DIR}/include
+    ${PROJECT_SOURCE_DIR}/src
+)
+
+# Make sure CMake can find all those files that are .h in /include/ and .cpp in /src/
+file(GLOB all_SRCS
+    "${PROJECT_SOURCE_DIR}/include/*.h"
+    "${PROJECT_SOURCE_DIR}/src/*.cpp"
+)
+
+# Linking those files found and adding them to the main.cpp executable
+add_executable(${PROJECT_NAME} ${all_SRCS} main.cpp)
+```
+
 ## Using CMAKE
 
 1. Create a project directory and move your source files into that directory. We do this by,
@@ -26,7 +46,7 @@ The way this project is setup is, we start off with a `CMake: Quick Start` throu
     cd sample/
    ```
 2. Create a file named `CMakeLists.txt` tells the make file the steps needed to compile our C++ code. This would look like this,
-    ```ts
+    ```py
     <!-- Set the minimum version of CMAKE required to compile the project -->
     cmake_minimum_required(VERSION 3.0)
 
@@ -45,7 +65,7 @@ The way this project is setup is, we start off with a `CMake: Quick Start` throu
     )
     ```
 3. Once the `CMakeLists.txt` file is setup, we can generate the make file by running the following in the root directory of the project.
-    ```ts
+    ```py
     cmake .
     ```
 4. Simply run,
@@ -65,7 +85,7 @@ If you've a VSCode environment setup, do the following.
 
 ###### Note: VSCode generates a CMakeLists.txt file like this. Just in case, for future reference when trying to build without a plugin that auto-generates it.
 
-```ts
+```py
 cmake_minimum_required(VERSION 3.0.0)
 project(sample VERSION 0.1.0)
 
