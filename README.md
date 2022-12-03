@@ -7,7 +7,7 @@
   - [Why use CMAKE in the first place?](#why-use-cmake-in-the-first-place)
   - [Using CMAKE](#using-cmake)
   - [Ideally](#ideally)
-          - [Note](#note)
+    - [Note](#note)
 - [Using this repository as an example](#using-this-repository-as-an-example)
 
 
@@ -71,7 +71,7 @@ If you've a VSCode environment setup, do the following.
 2. `cd` into the `./build/` directory and run `make` to execute the generated MakeFile.
 3. This would then create the compiled object file for the scripts. *Run those should you desire.*
 
-###### Note
+### Note
 
 VSCode generates a CMakeLists.txt file like this. Just in case, for future reference when trying to build without a plugin that auto-generates it.
 
