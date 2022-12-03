@@ -510,24 +510,24 @@ ContinuousSubmit/fast:
 .PHONY : ContinuousSubmit/fast
 
 #=============================================================================
-# Target rules for targets named sample
+# Target rules for targets named project
 
 # Build rule for target.
-sample: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 sample
-.PHONY : sample
+project: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 project
+.PHONY : project
 
 # fast build rule for target.
-sample/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sample.dir\build.make CMakeFiles/sample.dir/build
-.PHONY : sample/fast
+project/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\project.dir\build.make CMakeFiles/project.dir/build
+.PHONY : project/fast
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sample.dir\build.make CMakeFiles/sample.dir/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\project.dir\build.make CMakeFiles/project.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -535,7 +535,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sample.dir\build.make CMakeFiles/sample.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\project.dir\build.make CMakeFiles/project.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -543,8 +543,32 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\sample.dir\build.make CMakeFiles/sample.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\project.dir\build.make CMakeFiles/project.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+src/src.obj: src/src.cpp.obj
+.PHONY : src/src.obj
+
+# target to build an object file
+src/src.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\project.dir\build.make CMakeFiles/project.dir/src/src.cpp.obj
+.PHONY : src/src.cpp.obj
+
+src/src.i: src/src.cpp.i
+.PHONY : src/src.i
+
+# target to preprocess a source file
+src/src.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\project.dir\build.make CMakeFiles/project.dir/src/src.cpp.i
+.PHONY : src/src.cpp.i
+
+src/src.s: src/src.cpp.s
+.PHONY : src/src.s
+
+# target to generate assembly for a file
+src/src.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\project.dir\build.make CMakeFiles/project.dir/src/src.cpp.s
+.PHONY : src/src.cpp.s
 
 # Help Target
 help:
@@ -585,10 +609,13 @@ help:
 	@echo ... NightlySubmit
 	@echo ... NightlyTest
 	@echo ... NightlyUpdate
-	@echo ... sample
+	@echo ... project
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... src/src.obj
+	@echo ... src/src.i
+	@echo ... src/src.s
 .PHONY : help
 
 
