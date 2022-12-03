@@ -14,6 +14,9 @@ Here, we tell the compiler which source file to call, i.e., `main.cpp` and what 
 
 In a real-world scenario, when there are hundreds, even thousands, of source files that need to be compiled and run, it becomes impractical to use this command that many times. That's where `CMAKE` and `MAKE` come in.
 
+## This Project
+The way this project is setup is, we start off with a `CMake: Quick Start` through the command pallette and edit the `CMakeLists.txt` as we go along. There are numerous ways to build projects in C++ using CMake but the template that I'm most familiar with is having all the user-defined header files in a directory named `./include` and all the source files that implement those declared functions in the headers, in a directory named `./src` or `./source`.
+
 ## Using CMAKE
 
 1. Create a project directory and move your source files into that directory. We do this by,
