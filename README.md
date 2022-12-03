@@ -14,29 +14,6 @@ Here, we tell the compiler which source file to call, i.e., `main.cpp` and what 
 
 In a real-world scenario, when there are hundreds, even thousands, of source files that need to be compiled and run, it becomes impractical to use this command that many times. That's where `CMAKE` and `MAKE` come in.
 
-## This Project
-The way this project is setup is, we start off with a `CMake: Quick Start` through the command pallette and edit the `CMakeLists.txt` as we go along. There are numerous ways to build projects in C++ using CMake but the template that I'm most familiar with is having all the user-defined header files in a directory named `./include` and all the source files that implement those declared functions in the headers, in a directory named `./src` or `./source`.
-
-To make sure the `make` file is created properly by linking all those dependency files with your `main.cpp` executable, you need to add the following to your `CMakeLists.txt`:
-```py
-# The next following functions are quintessential for this kind of design of CMake project
-
-# Use this to add sub-directories for storing the headers and source files separately
-include_directories(
-    ${PROJECT_SOURCE_DIR}/include
-    ${PROJECT_SOURCE_DIR}/src
-)
-
-# Make sure CMake can find all those files that are .h in /include/ and .cpp in /src/
-file(GLOB all_SRCS
-    "${PROJECT_SOURCE_DIR}/include/*.h"
-    "${PROJECT_SOURCE_DIR}/src/*.cpp"
-)
-
-# Linking those files found and adding them to the main.cpp executable
-add_executable(${PROJECT_NAME} ${all_SRCS} main.cpp)
-```
-
 ## Using CMAKE
 
 1. Create a project directory and move your source files into that directory. We do this by,
@@ -97,4 +74,28 @@ add_executable(sample main.cpp)
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
+```
+
+## Using this repository as an example
+
+The way this project is setup is, we start off with a `CMake: Quick Start` through the command pallette and edit the `CMakeLists.txt` as we go along. There are numerous ways to build projects in C++ using CMake but the template that I'm most familiar with is having all the user-defined header files in a directory named `./include` and all the source files that implement those declared functions in the headers, in a directory named `./src` or `./source`.
+
+To make sure the `make` file is created properly by linking all those dependency files with your `main.cpp` executable, you need to add the following to your `CMakeLists.txt`:
+```py
+# The next following functions are quintessential for this kind of design of CMake project
+
+# Use this to add sub-directories for storing the headers and source files separately
+include_directories(
+    ${PROJECT_SOURCE_DIR}/include
+    ${PROJECT_SOURCE_DIR}/src
+)
+
+# Make sure CMake can find all those files that are .h in /include/ and .cpp in /src/
+file(GLOB all_SRCS
+    "${PROJECT_SOURCE_DIR}/include/*.h"
+    "${PROJECT_SOURCE_DIR}/src/*.cpp"
+)
+
+# Linking those files found and adding them to the main.cpp executable
+add_executable(${PROJECT_NAME} ${all_SRCS} main.cpp)
 ```
